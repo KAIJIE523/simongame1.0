@@ -1,0 +1,288 @@
+/* Reset &基础 */
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 欢迎页 */
+.welcome-screen {
+  max-width: 450px;
+  width: 100%;
+  margin: 50px auto;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #ff9898;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.welcome-screen h1 {
+  font-size: 3em;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  color: #000000;
+}
+
+.game-description p {
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.selection {
+  margin-bottom: 25px;
+  text-align: left;
+  color: #000000;
+}
+
+.selection label {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.selection select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1.1em;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.start-button {
+  width: 100%;
+  padding: 18px 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  background-color: #00c6ff;
+  background-image: linear-gradient(315deg, #00c6ff 0%, #0072ff 74%);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 8px 18px rgba(0,198,255,0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  background-image: linear-gradient(315deg, #0072ff 0%, #00c6ff 74%);
+  box-shadow: 0 12px 30px rgba(0,198,255,0.9);
+  transform: scale(1.05);
+}
+
+/* 游戏界面 */
+.screen {
+  max-width: 480px;
+  width: 100%;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  padding: 20px;
+  user-select: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #222;
+}
+
+#topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  color: #222;
+}
+
+.top-btn:hover {
+  background-color: #007bff33;
+}
+
+#score, #countdown {
+  font-size: 1.2em;
+  font-weight: 600;
+  min-width: 110px;
+  text-align: center;
+  color: #222;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+  justify-items: center;
+}
+
+.btn-tile {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  background-color: #fff;
+}
+
+/* 4个颜色的默认色 */
+.btn-tile.color-0 {
+  background-color: #1abc9c;
+}
+
+.btn-tile.color-1 {
+  background-color: #e74c3c;
+}
+
+.btn-tile.color-2 {
+  background-color: #f1c40f;
+}
+
+.btn-tile.color-3 {
+  background-color: #3498db;
+}
+
+/* 多按钮扩展色（6或8按钮）不同颜色 */
+.btn-tile.color-4 {
+  background-color: #9b59b6; /* 紫色 */
+}
+
+.btn-tile.color-5 {
+  background-color: #34495e; /* 深灰蓝 */
+}
+
+.btn-tile.color-6 {
+  background-color: #e67e22; /* 橙色 */
+}
+
+.btn-tile.color-7 {
+  background-color: #2ecc71; /* 绿色 */
+}
+
+/* 按钮闪烁 */
+.btn-tile.btn-lit {
+  filter: brightness(1.8);
+  box-shadow: 0 0 40px 15px rgba(255,255,255,0.85);
+}
+
+/* 游戏结束 */
+#game-over {
+  margin-top: 25px;
+}
+
+#gameover-title {
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+
+#final-score {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#leaderboard {
+  text-align: left;
+  max-width: 280px;
+  margin: 0 auto 15px;
+  padding-left: 20px;
+  color: #222;
+}
+
+#leaderboard li {
+  font-size: 1.1em;
+  padding: 3px 0;
+  list-style-type: decimal;
+}
+
+/* 主题 - 暗色 */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark .screen {
+  background: #222;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  color: #eee;
+}
+
+body.dark .btn-tile {
+  box-shadow: 0 6px 15px rgba(255,255,255,0.2);
+}
+
+body.dark .btn-tile.btn-lit {
+  filter: brightness(2.5);
+  box-shadow: 0 0 45px 20px rgba(255,255,255,1);
+}
+
+body.dark .top-btn,
+body.dark #score,
+body.dark #countdown,
+body.dark #leaderboard {
+  color: #eee;
+}
+
+body.dark .top-btn:hover {
+  background-color: #0056b833;
+}
+
+/* 首页和游戏切换时字体颜色同步 */
+body.dark .welcome-screen,
+body.dark .welcome-screen h1,
+body.dark .welcome-screen .game-description p,
+body.dark .welcome-screen .selection label {
+  color: #eee;
+  text-shadow: none;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+  .welcome-screen {
+    margin: 20px 15px;
+    padding: 30px 20px;
+  }
+  .welcome-screen h1 {
+    font-size: 2.2em;
+  }
+  .start-button {
+    font-size: 1.7em;
+  }
+  .btn-tile {
+    width: 90px;
+    height: 90px;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simon Memory Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 欢迎页面 -->
+  <div id="home-screen" class="screen welcome-screen">
+    <h1 id="game-title">Simon Memory Game</h1>
+
+    <div class="game-description">
+      <p id="desc-en">Welcome! Repeat the flashing sequence of colored buttons. Try to get the highest score!</p>
+      <p id="desc-zh" style="display:none;">欢迎！请重复闪烁的彩色按钮顺序。尽力获得最高分！</p>
+    </div>
+
+    <div class="selection">
+      <label for="language-select">Language / 语言:</label>
+      <select id="language-select">
+        <option value="en" selected>English</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+
+    <div class="selection">
+      <label for="difficulty-select">Difficulty / 难度:</label>
+      <select id="difficulty-select">
+        <option value="easy" selected>Easy (4 buttons)</option>
+        <option value="medium">Medium (6 buttons)</option>
+        <option value="hard">Hard (8 buttons)</option>
+      </select>
+    </div>
+
+    <button id="start-btn" class="start-button">START</button>
+  </div>
+
+  <!-- 游戏页面 -->
+  <div id="game-screen" class="screen" style="display:none;">
+    <div id="topbar">
+      <button id="lang-toggle" class="top-btn">🌐 中文</button>
+      <button id="theme-toggle" class="top-btn">🌙</button>
+    </div>
+
+    <div id="score-timer-wrapper">
+      <div id="score"><span id="score-label">Score:</span> <span id="score-value">0</span></div>
+      <div id="countdown"><span id="timer-label">Time:</span> <span id="timer">20</span>s</div>
+    </div>
+
+    <div id="button-grid" class="button-grid"></div>
+
+    <div id="game-over" style="display:none;">
+      <h2 id="gameover-title">Game Over!</h2>
+      <p id="final-score">0</p>
+      <h3 id="leaderboard-title">Leaderboard</h3>
+      <ol id="leaderboard"></ol>
+      <button id="restart-btn" class="start-button">Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
